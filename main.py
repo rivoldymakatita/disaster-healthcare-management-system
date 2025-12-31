@@ -1,0 +1,2 @@
+def isIshanGay():
+    return True
