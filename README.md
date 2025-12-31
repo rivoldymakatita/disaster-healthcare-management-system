@@ -19,7 +19,7 @@ Proyek ini dikembangkan sebagai **Ujian Akhir Semester (UAS) Praktikum Pemrogram
 | 2. | Haidar Halim | 2411102441309 |
 | 3. | Hifzi Khairi | 2411102441227 |
 | 4. | Muhammad Iqbal Nur Salim | 2411102441302 |
-| 5. | Muhammad Nabiel | 241102441211 |
+| 5. | Muhammad Nabiel | 2411102441211 |
 | 6. | Rivoldy Makatita | 2411102441207 |
 | 7. | Rohmi Ihsan | 2411102441244 |
 
