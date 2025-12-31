@@ -2,7 +2,7 @@ from datetime import date
 from .orang import Orang
 from utils.enums.jenis_kelamin import JenisKelamin
 from utils.enums.status_triase import StatusTriase
-from posko import Posko
+from .posko import Posko
 
 
 class Korban(Orang):

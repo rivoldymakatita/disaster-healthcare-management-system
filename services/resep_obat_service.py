@@ -12,18 +12,6 @@ from repositories.base_repository import BaseRepository
 
 
 class ResepObatService:
-    """
-    Service untuk alur bisnis ResepObat.
-
-    Tanggung jawab:
-    - Generate id_resep
-    - Validasi FK: Pemeriksaan harus ada
-    - Validasi FK: Obat harus ada
-    - Validasi stok: stok tidak boleh negatif
-    - Kurangi stok obat sesuai qty
-    - Simpan resep ke repository
-    """
-
     def __init__(
         self,
         resep_repo: BaseRepository,
@@ -41,15 +29,6 @@ class ResepObatService:
         items_input: list[dict],
         tanggal_resep: date | None = None,
     ) -> str:
-        """
-        Membuat resep berdasarkan pemeriksaan + daftar item.
-
-        items_input format (contoh):
-        [
-          {"id_obat": "...", "qty": 2, "aturan_pakai": "2x1", "dosis": 1},
-          {"id_obat": "...", "qty": 1, "aturan_pakai": "1x1", "dosis": 1},
-        ]
-        """
         now = datetime.now()
         self._logger.info(f"Membuat resep obat baru ({now})")
 
@@ -64,8 +43,6 @@ class ResepObatService:
         if tanggal_resep is None:
             tanggal_resep = date.today()
 
-        # ===== Siapkan item + validasi stok dulu (tanpa mengubah stok) =====
-        # Gabungkan item dengan id_obat sama (opsional tapi lebih aman)
         merged_items: dict[str, dict] = {}
         for item in items_input:
             if not isinstance(item, dict):
@@ -96,9 +73,7 @@ class ResepObatService:
                     "dosis": dosis,
                 }
             else:
-                # gabung qty
                 merged_items[id_obat]["qty"] += qty
-                # aturan_pakai & dosis tetap ambil yang pertama (atau kamu bisa pakai yang terakhir)
 
         resep_items: list[ResepItem] = []
         stok_awal: dict[str, int] = {}  # id_obat -> stok sebelum transaksi
@@ -108,11 +83,12 @@ class ResepObatService:
             if obat is None:
                 raise ValueError(f"Obat tidak ditemukan (id_obat={id_obat})")
 
-            # simpan stok awal untuk rollback
-            stok_awal[id_obat] = obat.get_stok()
+            # Perbaikan: getter stok
+            stok_awal[id_obat] = obat.get_stock_obat()
 
-            if obat.get_stok() < item["qty"]:
-                raise ValueError(f"Stok obat '{obat.get_nama()}' tidak cukup")
+            if obat.get_stock_obat() < item["qty"]:
+                # Perbaikan: getter nama
+                raise ValueError(f"Stok obat '{obat.get_nama_obat()}' tidak cukup")
 
             resep_items.append(
                 ResepItem(
@@ -131,8 +107,9 @@ class ResepObatService:
                 obat = resep_item.get_obat()
                 id_obat = obat.get_id_obat()
 
-                stok_baru = obat.get_stok() - resep_item.get_qty()
-                obat.set_stok(stok_baru)
+                # Perbaikan: getter & setter stok
+                stok_baru = obat.get_stock_obat() - resep_item.get_qty()
+                obat.set_stock_obat(stok_baru)
 
                 if not self._obat_repo.perbarui(id_obat, obat):
                     raise RuntimeError(f"Gagal update stok obat (id_obat={id_obat})")
@@ -165,7 +142,8 @@ class ResepObatService:
                 id_obat = obat.get_id_obat()
                 if id_obat in stok_awal:
                     try:
-                        obat.set_stok(stok_awal[id_obat])
+                        # Perbaikan: setter stok
+                        obat.set_stock_obat(stok_awal[id_obat])
                         if not self._obat_repo.perbarui(id_obat, obat):
                             self._logger.error(f"Rollback gagal update repo untuk id_obat={id_obat} ({now})")
                     except Exception:

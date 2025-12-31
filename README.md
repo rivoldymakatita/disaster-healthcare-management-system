@@ -1,9 +1,34 @@
-Aturan Git (WAJIB)
+# Disaster Healthcare Management System 🚑
+### Sistem Informasi Manajemen Penanganan Kesehatan Bencana
 
-Dilarang push langsung ke branch main
+![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-Completed-success)
 
-Semua perubahan melalui branch fitur
+## 📖 Deskripsi Proyek
+Aplikasi ini adalah sistem berbasis **Command Line Interface (CLI)** yang dirancang untuk membantu manajemen penanganan kesehatan dalam situasi bencana alam. Sistem ini mengelola data bencana, posko bantuan, tenaga medis, korban (pasien), stok obat-obatan, pemeriksaan medis (triage), hingga pembuatan resep obat secara terintegrasi.
 
-Wajib Pull Request (PR) sebelum merge
+Proyek ini dikembangkan sebagai **Ujian Akhir Semester (UAS) Praktikum Pemrograman Berorientasi Objek (PBO)** di Universitas Muhammadiyah Kalimantan Timur.
 
-Minimal 1 reviewer
+## 👥 Anggota Kelompok
+**Kelompok: [MASUKKAN NAMA/NOMOR KELOMPOK ANDA]**
+
+| No | Nama Mahasiswa | NIM | Peran |
+|----|---------------|-----|-------|
+| 1. | [Nama Anggota 1] | [NIM] | Project Manager / Backend |
+| 2. | [Nama Anggota 2] | [NIM] | Developer |
+| 3. | [Nama Anggota 3] | [NIM] | Developer / Analyst |
+| 4. | [Nama Anggota 4] | [NIM] | Designer / Documentation |
+
+---
+
+## 🏗️ Arsitektur Sistem (Layered Architecture)
+Aplikasi ini dibangun menggunakan **Layered Architecture** untuk memisahkan tanggung jawab (*Separation of Concerns*) sesuai prinsip SOLID.
+
+```text
+.
+├── models/          # Entitas/Data Class (Menyimpan struktur data seperti Obat, Korban, dll)
+├── repositories/    # Data Access Layer (Menyimpan data in-memory/simulasi database)
+├── services/        # Business Logic Layer (Validasi & alur proses bisnis)
+├── utils/           # Fungsi bantuan (Logger, Enum, Generator ID)
+└── main.py          # Entry Point & Orchestrator (Titik masuk aplikasi)

@@ -1,5 +1,5 @@
 from utils.enums.status_posko import StatusPosko
-from bencana import Bencana
+from .bencana import Bencana
 
 class Posko:
     """
