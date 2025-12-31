@@ -1,7 +1,7 @@
 from enum import Enum
 
 class StatusTriase(Enum):
-    MERAH = "Merah"      # Prioritas tinggi
-    KUNING = "Kuning"    # Prioritas sedang
-    HIJAU = "Hijau"      # Prioritas rendah
-    HITAM = "Hitam"      # Tidak dapat diselamatkan
+    MERAH = "merah"      # Ubah "Merah" jadi "merah"
+    KUNING = "kuning"    # Ubah "Kuning" jadi "kuning"
+    HIJAU = "hijau"      # Ubah "Hijau" jadi "hijau"
+    HITAM = "hitam"      # Ubah "Hitam" jadi "hitam"

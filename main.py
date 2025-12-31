@@ -103,7 +103,7 @@ def main():
             nama="Betadine Cair",
             stok=50,
             satuan="Botol",
-            tanggal_kadaluarsa=date(2025, 6, 30)
+            tanggal_kadaluarsa=date(2026, 6, 30)
         )
         print(f"   -> Obat Paracetamol dibuat. ID: {id_obat_paracetamol}")
         print(f"   -> Obat Betadine dibuat. ID: {id_obat_betadine}")

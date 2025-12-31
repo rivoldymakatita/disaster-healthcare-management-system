@@ -1,5 +1,5 @@
 from enum import Enum
 
 class RoleTenagaMedis(Enum):
-    DOKTER = "Dokter"
-    PERAWAT = "Perawat"
+    DOKTER = "dokter"    # Ubah "Dokter" jadi "dokter"
+    PERAWAT = "perawat"  # Ubah "Perawat" jadi "perawat"

@@ -13,12 +13,15 @@ Proyek ini dikembangkan sebagai **Ujian Akhir Semester (UAS) Praktikum Pemrogram
 ## 👥 Anggota Kelompok
 **Kelompok: [MASUKKAN NAMA/NOMOR KELOMPOK ANDA]**
 
-| No | Nama Mahasiswa | NIM | Peran |
-|----|---------------|-----|-------|
-| 1. | [Nama Anggota 1] | [NIM] | Project Manager / Backend |
-| 2. | [Nama Anggota 2] | [NIM] | Developer |
-| 3. | [Nama Anggota 3] | [NIM] | Developer / Analyst |
-| 4. | [Nama Anggota 4] | [NIM] | Designer / Documentation |
+| No | Nama Mahasiswa | NIM |
+|----|---------------|-----|
+| 1. | Hafidzal Mufty | 2411102441285 |
+| 2. | Haidar Halim | 2411102441309 |
+| 3. | Hifzi Khairi | 2411102441227 |
+| 4. | Muhammad Iqbal Nur Salim | 2411102441302 |
+| 5. | Muhammad Nabiel | 241102441211 |
+| 6. | Rivoldy Makatita | 2411102441207 |
+| 7. | Rohmi Ihsan | 2411102441244 |
 
 ---
 

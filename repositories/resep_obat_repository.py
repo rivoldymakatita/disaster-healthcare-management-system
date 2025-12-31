@@ -1,7 +1,7 @@
 # src/repositories/resep_obat_repository_memory.py
 from datetime import datetime
 from utils.loggers import get_logger
-from repositories.base_repository import BaseRepository
+from .base_repository import BaseRepository
 
 
 class ResepObatRepositoryMemory(BaseRepository):

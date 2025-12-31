@@ -1,6 +1,6 @@
 from datetime import datetime
 from utils.loggers import get_logger
-from base_repository import BaseRepository
+from .base_repository import BaseRepository
 
 class ObatRepositoryMemory(BaseRepository):
     """
